@@ -1,4 +1,4 @@
-# Hetzner Firewall automation with Cloudflare Workers
+# Hetzner Cloud Firewall automation with Cloudflare Workers
 
 Heavily inspired by [xopez/Hetzner-Cloud-Firewall-API-examples](https://github.com/xopez/Hetzner-Cloud-Firewall-API-examples), this repository holds a Cloudflare Worker which updates a [Hetzner Cloud](https://www.hetzner.com/cloud) Firewall to use the latest list of [Cloudflare IP ranges](https://www.cloudflare.com/en-gb/ips/) on a Cron Trigger.
 
