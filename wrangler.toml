@@ -1,0 +1,12 @@
+name = "hetzner-firewall-cfworker"
+type = "javascript"
+compatibility_flags = []
+workers_dev = true
+compatibility_date = "2022-04-22"
+
+[vars]
+PORTS = "80,443"
+FIREWALL_ID = "371787"
+
+[triggers]
+crons = ["0 0 * * *"]
