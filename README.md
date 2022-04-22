@@ -14,11 +14,11 @@ Heavily inspired by [xopez/Hetzner-Cloud-Firewall-API-examples](https://github.c
 - Create a Hetzner Cloud API Token and set it with `wrangler secret put API_TOKEN`.
 - (Optional) Secure your `workers.dev` domain by adding an extra secret to manual REST calls:
     - `wrangler secret put WORKER_SECRET`
-    - This secret will need to be in the `Authorization` header to trigger the Worker manually over HTTPS, but only if one is present. Cron triggers are automatic and unaffected.
+    - This secret will need to be in the `Authorization` header to trigger the Worker manually over HTTPS, but only if the secret is defined. Cron triggers are automatic and unaffected.
 
 ## Creativity
 
-If allowing Cloudflare IPs is not your jam, it should be easy to edit `index.js` and replace the two URLs with any other URLs that produce a newline-seperated list of IP ranges, allowing you to allowlist any service you desie.
+If allowing Cloudflare IPs is not your jam, it should be easy to edit `index.js` and replace the two URLs with any other URLs that produce a newline-seperated list of IP ranges, allowing you to allowlist any service you desire.
 
 Remember to remove the `rules.concat` line if you only end up having one list.
 
