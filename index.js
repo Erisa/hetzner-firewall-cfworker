@@ -34,8 +34,6 @@ async function handleRequest (event) {
   let rules = compileRules(ipv4List, portList)
   rules = rules.concat(compileRules(ipv6List, portList))
 
-  console.log(rules)
-
   // rename the firewall
   // error if this fails
 
