@@ -28,11 +28,13 @@ async function handleRequest (event) {
 
   // get IPs, error if not 200
   const ipv4List = await fetchList('https://www.cloudflare.com/ips-v4/')
-  const ipv6Lst = await fetchList('https://www.cloudflare.com/ips-v6/')
+  const ipv6List = await fetchList('https://www.cloudflare.com/ips-v6/')
 
   // compile list into rules
-  const rules = compileRules(ipv4List, portList)
-  rules.concat(compileRules(ipv6Lst, portList))
+  let rules = compileRules(ipv4List, portList)
+  rules = rules.concat(compileRules(ipv6List, portList))
+
+  console.log(rules)
 
   // rename the firewall
   // error if this fails
