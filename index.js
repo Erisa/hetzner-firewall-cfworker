@@ -31,8 +31,7 @@ async function handleRequest (event) {
   const ipv6List = await fetchList('https://www.cloudflare.com/ips-v6/')
 
   // compile list into rules
-  let rules = compileRules(ipv4List, portList)
-  rules = rules.concat(compileRules(ipv6List, portList))
+  let rules = compileRules([ipv4List, ipv6List], portList)
 
   // rename the firewall
   // error if this fails
@@ -82,13 +81,18 @@ async function fetchList (url) {
   }
 }
 
-function compileRules (list, ports) {
+function compileRules (lists, ports) {
   const builtRules = []
+  ips = []
+
+  lists.forEach(list => {
+    ips = ips.concat(list)
+  })
 
   ports.forEach(port => {
     builtRules.push({
       direction: 'in',
-      source_ips: list,
+      source_ips: ips,
       protocol: 'tcp',
       port
     })
