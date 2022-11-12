@@ -1,8 +1,7 @@
 name = "hetzner-firewall-cfworker"
-type = "javascript"
-compatibility_flags = []
+main = "index.js"
 workers_dev = true
-compatibility_date = "2022-04-22"
+compatibility_date = "2022-11-12"
 
 [vars]
 PORTS = "80,443"

@@ -4,7 +4,7 @@ Heavily inspired by [xopez/Hetzner-Cloud-Firewall-API-examples](https://github.c
 
 ## Requirements
 - Hetzner Cloud account
-- Wrangler: `npm install -g @cloudflare/wrangler`
+- Wrangler: `npm i -g wrangler`
 - Cloudflare account configured to deploy Workers
 
 ## Usage
