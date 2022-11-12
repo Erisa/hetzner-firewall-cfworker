@@ -6,15 +6,15 @@ export default {
       })
     }
 
-    // try {
+    try {
       return await handleRequest(env, ctx)
-    // }
-    // catch (err) {
+    }
+    catch (err) {
       return new Response(err.message, { status: 500 })
-    // }
+    }
   },
 
-  async triggerEvent(env, ctx) {
+  async scheduled(env, ctx) {
     await handleRequest(event);
   }
 
