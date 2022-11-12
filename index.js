@@ -15,7 +15,7 @@ export default {
   },
 
   async scheduled(env, ctx) {
-    await handleRequest(event);
+    await handleRequest(env, ctx);
   }
 
 }
