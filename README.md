@@ -18,7 +18,7 @@ Heavily inspired by [xopez/Hetzner-Cloud-Firewall-API-examples](https://github.c
 
 ## Creativity
 
-If allowing Cloudflare IPs is not your jam, it should be easy to edit `index.js` and replace the two URLs with any other URLs that produce a newline-seperated list of IP ranges, allowing you to allowlist any service you desire.
+If allowing Cloudflare IPs is not your jam, it should be easy to edit `src/index.ts` and replace the two URLs with any other URLs that produce a newline-seperated list of IP ranges, allowing you to allowlist any service you desire.
 
 Remember to remove the `rules.concat` line if you only end up having one list.
 
