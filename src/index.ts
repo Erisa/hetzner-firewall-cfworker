@@ -1,5 +1,15 @@
+export interface Env {
+	WORKER_SECRET: string
+	API_TOKEN: string
+	PORTS: string
+	FIREWALL_ID: string
+}
+
 export default {
-	async fetch(request, env, ctx) {
+	async fetch(
+		request: Request,
+		env: Env,
+		ctx: ExecutionContext) {
 		if (typeof env.WORKER_SECRET !== 'undefined' && request.headers.get('Authorization') != env.WORKER_SECRET) {
 			return new Response('Unauthorized for manual calls.', {
 				status: 403
@@ -9,18 +19,18 @@ export default {
 		try {
 			return await handleRequest(env, ctx)
 		}
-		catch (err) {
+		catch (err: any) {
 			return new Response(err.message, { status: 500 })
 		}
 	},
 
-	async scheduled(env, ctx) {
+	async scheduled(env: Env, ctx: ExecutionContext) {
 		await handleRequest(env, ctx);
 	}
 
 }
 
-async function handleRequest(env, ctx) {
+async function handleRequest(env: Env, ctx: ExecutionContext) {
 	if (env.API_TOKEN === undefined) {
 		return new Response('env.API_TOKEN is not defined. Please define it.', {
 			status: 403
@@ -74,7 +84,7 @@ async function handleRequest(env, ctx) {
 	return finalResp
 }
 
-async function fetchList(url) {
+async function fetchList(url: string) {
 	const resp = await fetch(url)
 
 	if (resp.status !== 200) {
@@ -84,9 +94,9 @@ async function fetchList(url) {
 	}
 }
 
-function compileRules(lists, ports) {
-	const builtRules = []
-	let ips = []
+function compileRules(lists: Array<string[]>, ports: string[]) {
+	const builtRules: BuiltRule[] = []
+	let ips: string[] = []
 
 	lists.forEach(list => {
 		ips = ips.concat(list)
@@ -102,4 +112,11 @@ function compileRules(lists, ports) {
 	})
 
 	return builtRules
+}
+
+export interface BuiltRule {
+	direction: string
+	source_ips: string[]
+	protocol: string
+	port: string
 }

@@ -1,10 +1,11 @@
 name = "hetzner-firewall-cfworker"
-main = "index.js"
+main = "src/index.ts"
 workers_dev = true
 compatibility_date = "2022-11-12"
+logpush = true
 
 [vars]
-PORTS = "80,443"
+PORTS = "22,10025,10465,10587,10143,10993,10110,10996,14190,10080,10443"
 FIREWALL_ID = "371787"
 
 [triggers]
