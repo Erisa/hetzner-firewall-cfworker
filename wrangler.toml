@@ -1,7 +1,7 @@
 name = "hetzner-firewall-cfworker"
 main = "src/index.ts"
 workers_dev = true
-compatibility_date = "2022-11-12"
+compatibility_date = "2023-07-01"
 #logpush = true
 
 [vars]
